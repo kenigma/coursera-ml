@@ -18,9 +18,11 @@ for iter = 1:num_iters
     %
     newtheta = [];
 
-    for j = 1:length(theta)
-        newtheta(j, 1) = theta(j, 1) - alpha * sum((X*theta - y) .* X(:, j)) / m;
-    end
+    %for j = 1:length(theta)
+    %    newtheta(j, 1) = theta(j, 1) - alpha * sum((X*theta - y) .* X(:, j)) / m;
+    %end
+    
+    newtheta = theta - alpha * (X' * (X*theta - y)) / m;
 
     theta = newtheta;
     
